@@ -1,0 +1,6 @@
+cp profile.ini to  /opt/saisai/
+
+cp usersystem  to  /opt/saisai/
+
+import usersystem.sql  to  mysql
+

@@ -6,22 +6,22 @@ import (
 )
 
 type User struct {
-	Id         string `json:"id" xorm:"varchar(24) pk"`
-	Nickname   string `json:"nickname" xorm:"varchar(100)"`
+	Id         string `json:"id" xorm:"varchar(24) pk "`
+	Nickname   string `json:"nickname" xorm:"varchar(100) not null unique"`
 	Avatar     string `json:"avatar" xorm:"varchar(100)"`
 	Sex        int    `json:"sex" xorm:"int"`
 	CreateTime string `json:"createtime" xorm:"DateTime created"`
 }
 
 type UserAuths struct {
-	Id              int    `json:"id" xorm:"int pk"`
-	UserId          string `json:"user_id" xorm:"varchar(100)"`
-	IdentifyType    string `json:"identify_type" xorm:"varchar(50)"`
-	Identifier      string `json:"identifier" xorm:"varchar(50)"`
-	Credential      string `json:"credential" xorm:"varchar(100)"`
+	Id              int    `json:"id" xorm:"int pk autoincr"`
+	UserId          string `json:"user_id" xorm:"varchar(100) not null"`
+	IdentifyType    string `json:"identify_type" xorm:"varchar(50) not null"`
+	Identifier      string `json:"identifier" xorm:"varchar(50) not null"`
+	Credential      string `json:"credential" xorm:"varchar(100) not null"`
 	Latestlogintime string `json:"latestlogintime" xorm:"DateTime"`
 	State           int    `json:"state" xorm:"int"`
-	Registertime    string `json:"registertime" xorm:"DateTime"`
+	Registertime    string `json:"registertime" xorm:"DateTime created"`
 }
 
 var (
@@ -30,7 +30,7 @@ var (
 
 var (
 	coreTables []interface{} = []interface{}{
-		new(msg.User), new(UserAuths),
+		new(UserAuths), new(msg.User),
 	}
 )
 

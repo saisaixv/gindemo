@@ -27,7 +27,7 @@ const (
 var (
 	config      *ini.File
 	apiAddr     string
-	ConfigFiles []interface{} = []interface{}{"./deploy/profile.ini"}
+	ConfigFiles []interface{} = []interface{}{"/opt/saisai/profile.ini"}
 )
 
 func initConfig() error {
@@ -50,8 +50,12 @@ func initRedis(cfg *ini.File) (err error) {
 	}
 	url := sec.Key("url").String()
 	log.Infof("[init redis] url:'%s'", url)
+	//	auth := sec.Key("password").String()
+	//	log.Infof("[init redis] pwd:'%s'", auth)
 
 	cache.Init(url, "", 20, 20, 10)
+
+	log.Info("[init redis success]")
 
 	err = cache.Ping()
 	if err != nil {

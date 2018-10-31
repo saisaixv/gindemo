@@ -25,11 +25,11 @@ type RegisterReq struct {
 	Phone      string `json:"phone"`
 	Email      string `json:"email"`
 	Credential string `json:"credential"`
+	Sex        int    `json:"sex"`
 }
 
 type RegisterRsp struct {
 	BaseRsp
-	UserInfo UserInfo `json:"userinfo"`
 }
 
 type LoginReq struct {
@@ -46,4 +46,39 @@ type LoginRsp struct {
 	ErrCount   int    `json:"err_count"`
 	CaptchaId  string `json:"captcha_id"`
 	CaptchaUrl string `json:"captcha_url"`
+}
+
+type InfoRsp struct {
+	BaseRsp
+	UserInfo
+}
+
+type AddIdentifyTypeReq struct {
+	User_id       string `json:"user_id"`
+	Identify_type string `json:"identify_type"`
+	Identifier    string `json:"identifier"`
+	Credential    string `json:"credential"`
+}
+
+type AddIdentifyTypeRsp struct {
+	BaseRsp
+}
+
+type AuthenticationReq struct {
+	Token string `json:"token"`
+}
+
+type AuthenticationRsp struct {
+	BaseRsp
+	UserInfo
+}
+
+type LoginCydexManagerReq struct {
+	AuthType string `json:"authtype"`
+	Auth     string `json:"auth"`
+}
+
+type LoginCydexManagerRsp struct {
+	BaseRsp
+	Token string `json:"token"`
 }
