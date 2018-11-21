@@ -1114,37 +1114,37 @@ func getHardwareStr() string {
 
 	vendor := deviceInfo.Vendor
 	//	fmt.Printf("Vendor: %s [%s]\n", vendor.Name, vendor.Id)
-	vendorStr := fmt.Sprintf("Vendor: %s [%s]\n", vendor.Name, vendor.Id)
+	vendorStr := fmt.Sprintf("Vendor: %s [%s]\n", vendor.Name, vendor.ID)
 	retHardwareStr = retHardwareStr + vendorStr
 
 	product := deviceInfo.Product
 	//	fmt.Printf("Product: %s [%s]\n", product.Name, product.Id)
-	productStr := fmt.Sprintf("Product: %s [%s]\n", product.Name, product.Id)
+	productStr := fmt.Sprintf("Product: %s [%s]\n", product.Name, product.ID)
 	retHardwareStr = retHardwareStr + productStr
 
 	subsystem := deviceInfo.Subsystem
-	subvendor := pci.Vendors[subsystem.VendorId]
+	subvendor := pci.Vendors[subsystem.VendorID]
 	subvendorName := "UNKNOWN"
 	if subvendor != nil {
 		subvendorName = subvendor.Name
 	}
 	//	fmt.Printf("Subsystem: %s [%s] (Subvendor: %s)\n", subsystem.Name, subsystem.Id, subvendorName)
-	subsystemStr := fmt.Sprintf("Subsystem: %s [%s] (Subvendor: %s)\n", subsystem.Name, subsystem.Id, subvendorName)
+	subsystemStr := fmt.Sprintf("Subsystem: %s [%s] (Subvendor: %s)\n", subsystem.Name, subsystem.ID, subvendorName)
 	retHardwareStr = retHardwareStr + subsystemStr
 
 	class := deviceInfo.Class
 	//	fmt.Printf("Class: %s [%s]\n", class.Name, class.Id)
-	classStr := fmt.Sprintf("Class: %s [%s]\n", class.Name, class.Id)
+	classStr := fmt.Sprintf("Class: %s [%s]\n", class.Name, class.ID)
 	retHardwareStr = retHardwareStr + classStr
 
 	subclass := deviceInfo.Subclass
 	//	fmt.Printf("Subclass: %s [%s]\n", subclass.Name, subclass.Id)
-	subclassStr := fmt.Sprintf("Subclass: %s [%s]\n", subclass.Name, subclass.Id)
+	subclassStr := fmt.Sprintf("Subclass: %s [%s]\n", subclass.Name, subclass.ID)
 	retHardwareStr = retHardwareStr + subclassStr
 
 	progIface := deviceInfo.ProgrammingInterface
 	//	fmt.Printf("Programming Interface: %s [%s]\n", progIface.Name, progIface.Id)
-	progIfaceStr := fmt.Sprintf("Programming Interface: %s [%s]\n", progIface.Name, progIface.Id)
+	progIfaceStr := fmt.Sprintf("Programming Interface: %s [%s]\n", progIface.Name, progIface.ID)
 	retHardwareStr = retHardwareStr + progIfaceStr
 
 	// --------------------------------------
