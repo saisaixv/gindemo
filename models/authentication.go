@@ -9,8 +9,8 @@ import (
 
 	"github.com/saisai/gindemo/api/msg"
 	"github.com/saisai/gindemo/common"
-	"github.com/saisai/utils/cache"
-	ss_http "github.com/saisai/utils/http"
+	"github.com/saisai/gindemo/utils/cache"
+	ss_http "github.com/saisai/gindemo/utils/http"
 )
 
 func Authentication(req *msg.AuthenticationReq) int {
@@ -48,7 +48,7 @@ func LoginCydexManager(user_id, authtype, auth string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	ret, err := ss_http.CallAPI("POST", "http://127.0.0.1:9005/cydex/api/v1/thirdparty_auth", header, content, 5*time.Second)
+	ret, err := ss_http.CallAPI("POST", "http://127.0.0.1:9005/cydex/api/v1/thirdparty_auth", content, header, 5*time.Second)
 	if err != nil {
 		return false, err
 	}

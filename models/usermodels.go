@@ -8,9 +8,9 @@ import (
 	"github.com/saisai/gindemo/api/msg"
 	"github.com/saisai/gindemo/common"
 
-	"github.com/saisai/utils"
-	"github.com/saisai/utils/cache"
-	"github.com/saisai/utils/captcha"
+	"github.com/saisai/gindemo/utils"
+	"github.com/saisai/gindemo/utils/cache"
+	"github.com/saisai/gindemo/utils/captcha"
 )
 
 func Register(req *msg.RegisterReq) (string, int) {
@@ -126,7 +126,7 @@ func Login(req *msg.LoginReq, rsp *msg.LoginRsp) {
 		cache.DoStrSet(key_login_err, strconv.Itoa(errCount), common.FIVE_MINUTE)
 		rsp.Error_code = msg.ErrPasswordError
 		rsp.ErrCount = errCount
-		captchaId := captcha.GenerateCaptcha()
+		captchaId := captcha.NewLen(4)
 		rsp.CaptchaId = captchaId
 		rsp.CaptchaUrl = "http://192.168.150.130:9007/usersystem/api/v1/captcha/" + captchaId + ".png"
 		return
@@ -137,7 +137,7 @@ func Login(req *msg.LoginReq, rsp *msg.LoginRsp) {
 	//	has = cache.DoExpire(token, common.ONE_MINUTE)
 	if !has {
 		rsp.Error_code = msg.ErrServerInternalError
-		captchaId := captcha.GenerateCaptcha()
+		captchaId := captcha.NewLen(4)
 		rsp.CaptchaId = captchaId
 		rsp.CaptchaUrl = "http://192.168.150.130:9007/usersystem/api/v1/captcha/" + captchaId + ".png"
 

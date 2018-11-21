@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/saisai/gindemo/api/msg"
-	ss_http "github.com/saisai/utils/http"
+	ss_http "github.com/saisai/gindemo/utils/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -35,8 +35,8 @@ func Private_Register(ctx *gin.Context) {
 
 	rsp, err := ss_http.CallAPI("POST",
 		"http://192.168.150.130:9007/usersystem/api/v1/register",
-		header,
 		[]byte(content),
+		header,
 		5*time.Second)
 	if err != nil {
 		errNum = -1

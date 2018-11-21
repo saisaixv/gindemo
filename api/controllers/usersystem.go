@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/saisai/utils/cache"
+	"github.com/saisai/gindemo/utils/cache"
 
 	"github.com/saisai/gindemo/api/msg"
 	"github.com/saisai/gindemo/common"

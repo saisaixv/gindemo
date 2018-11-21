@@ -8,8 +8,7 @@ import (
 	"github.com/saisai/gindemo/api"
 	"github.com/saisai/gindemo/models"
 
-
-	"github.com/saisai/utils/cache"
+	"github.com/saisai/gindemo/utils/cache"
 
 	"caton/zh.jin/utils/log"
 
