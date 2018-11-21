@@ -10,7 +10,7 @@ import (
 
 	"github.com/saisai/gindemo/utils/cache"
 
-	"caton/zh.jin/utils/log"
+	"github.com/saisai/gindemo/utils/log"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-ini/ini"
